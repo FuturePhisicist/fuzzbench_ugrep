@@ -244,11 +244,15 @@ def run_my_afl_fuzz(input_corpus,
     """Run afl-fuzz."""
 
     print('[run_my_afl_fuzz] (Un)setting environmental variables')
-    mutator_path = os.path.join(os.environ['OUT'], 'mutator',
-                                'regex_mutator_my1.py')
+    mutator_path = os.path.join(
+        os.environ['OUT'],
+        'mutator',
+        'regex_mutator_my1.py'
+    )
     os.environ['PYTHONPATH'] = os.path.dirname(mutator_path)
     os.environ['AFL_PYTHON_MODULE'] = 'regex_mutator_my1'
     # os.environ['AFL_CUSTOM_MUTATOR_ONLY'] = '1'
+
 
     # Spawn the afl fuzzing process.
     print('[run_my_afl_fuzz] Running target with afl-fuzz')

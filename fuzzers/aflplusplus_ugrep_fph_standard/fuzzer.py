@@ -237,30 +237,26 @@ def build(*args):  # pylint: disable=too-many-branches,too-many-statements
 
 
 def run_my_afl_fuzz(input_corpus,
-                    output_corpus,
-                    target_binary,
-                    additional_flags=None,
-                    hide_output=False):
+                 output_corpus,
+                 target_binary,
+                 additional_flags=None,
+                 hide_output=False):
     """Run afl-fuzz."""
 
     print('[run_my_afl_fuzz] (Un)setting environmental variables')
-    mutator_path = os.path.join(os.environ['OUT'], 'mutator',
-                                'regex_mutator_my1.py')
-    os.environ['PYTHONPATH'] = os.path.dirname(mutator_path)
-    os.environ['AFL_PYTHON_MODULE'] = 'regex_mutator_my1'
-    # os.environ['AFL_CUSTOM_MUTATOR_ONLY'] = '1'
+    os.environ.pop('PYTHONPATH', None)
+    os.environ.pop('AFL_PYTHON_MODULE', None)
+    os.environ.pop('AFL_CUSTOM_MUTATOR_ONLY', None)
+
 
     # Spawn the afl fuzzing process.
     print('[run_my_afl_fuzz] Running target with afl-fuzz')
     command = [
         './afl-fuzz',
-        '-i',
-        input_corpus,
-        '-o',
-        output_corpus,
+        '-i', input_corpus,
+        '-o', output_corpus,
         # Use no memory limit as ASAN doesn't play nicely with one.
-        '-m',
-        'none',
+        '-m', 'none',
         # Use same default 1 sec timeout, but add '+' to skip hangs.
         # '-t', '1000+',
     ]
@@ -270,6 +266,7 @@ def run_my_afl_fuzz(input_corpus,
     if (not additional_flags or\
         afl_fuzzer.check_skip_det_compatible(additional_flags)):
         command.append('-d')
+
 
     if additional_flags:
         command.extend(additional_flags)
@@ -283,13 +280,17 @@ def run_my_afl_fuzz(input_corpus,
     # ]
 
     command += [
-        '--', target_binary, '-nr', '--color=never', '-e', '@@', 'input_texts'
+        '--',
+        target_binary,
+        '-nr',
+        '--color=never',
+        '-e', '@@',
+        'input_texts'
     ]
 
     print('[run_my_afl_fuzz] Running command: ' + ' '.join(command))
     output_stream = subprocess.DEVNULL if hide_output else None
     subprocess.check_call(command, stdout=output_stream, stderr=output_stream)
-
 
 # pylint: disable=too-many-arguments
 def fuzz(input_corpus,
@@ -333,6 +334,6 @@ def fuzz(input_corpus,
             flags += os.environ['ADDITIONAL_ARGS'].split(' ')
 
     run_my_afl_fuzz(input_corpus,
-                    output_corpus,
-                    target_binary,
-                    additional_flags=flags)
+                            output_corpus,
+                            target_binary,
+                            additional_flags=flags)

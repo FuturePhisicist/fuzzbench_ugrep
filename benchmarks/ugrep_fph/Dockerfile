@@ -9,5 +9,9 @@ RUN git clone https://github.com/FuturePhisicist/FuzzingTask /src/FuzzingTask
 COPY /src/FuzzingTask/unique_regexes $OUT/
 COPY /src/FuzzingTask/input_texts $OUT/
 
+# Debatable, whether it should be done by this Dockerfile
+# of by the aflplusplus_ugrep_fph_...
+COPY /src/FuzzingTask/mutator $OUT/
+
 WORKDIR $SRC/ugrep
 COPY build.sh $SRC/
