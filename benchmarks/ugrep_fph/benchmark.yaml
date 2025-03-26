@@ -1,0 +1,10 @@
+fuzzers:
+  - aflplusplus
+  - aflplusplus_ugrep_fph_custom
+  - aflplusplus_ugrep_fph_custom_only
+benchmarks:
+  - ugrep
+
+experiment:
+  experiment_name: "ugrep_fuzzing_task_fph"
+  max_total_time: 86400
