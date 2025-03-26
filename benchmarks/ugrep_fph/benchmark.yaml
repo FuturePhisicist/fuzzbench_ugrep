@@ -1,10 +1,76 @@
-fuzzers:
-  - aflplusplus
-  - aflplusplus_ugrep_fph_custom
-  - aflplusplus_ugrep_fph_custom_only
-benchmarks:
-  - ugrep
-
-experiment:
-  experiment_name: "ugrep_fuzzing_task_fph"
-  max_total_time: 86400
+commit: 8e9e97861f65408a2fb1196a7b112b992e7ca812
+commit_date: 2025-02-03T15:10:10-05:00
+fuzz_target: ugrep
+project: ugrep
+unsupported_fuzzers:
+  - afl
+  - afl_2_52_b
+  - aflcc
+  - aflfast
+  # - aflplusplus
+  - aflplusplus_frida
+  - aflplusplus_qemu
+  # - aflplusplus_ugrep_fph_custom
+  # - aflplusplus_ugrep_fph_custom_only
+  - aflplusplus_um_parallel
+  - aflplusplus_um_prioritize
+  - aflplusplus_um_prioritize_75
+  - aflplusplus_um_random
+  - aflplusplus_um_random_75
+  - aflpp_random_default
+  - aflpp_random_no_favs
+  - aflpp_random_wrs
+  - aflpp_random_wrs_rf
+  - aflpp_random_wrs_rf_rp
+  - aflpp_random_wrs_rp
+  - afl_qemu
+  - afl_random_favored
+  - aflsmart
+  - aflsmart_plusplus
+  - afl_virginmap
+  - centipede
+  - centipede_function_filter
+  - coverage
+  - darwin
+  - eclipser
+  - eclipser_aflplusplus
+  - eclipser_new
+  - ecofuzz
+  - fafuzz
+  - fairfuzz
+  - fuzzolic_aflplusplus_fuzzy
+  - fuzzolic_aflplusplus_z3
+  - glibfuzzer
+  - gramatron
+  - grimoire
+  - hastefuzz
+  - honggfuzz
+  - honggfuzz_qemu
+  - honggfuzz_um_parallel
+  - honggfuzz_um_prioritize
+  - honggfuzz_um_prioritize_75
+  - honggfuzz_um_random
+  - honggfuzz_um_random_75
+  - klee
+  - lafintel
+  - learnperffuzz
+  - libafl
+  - libafl_libfuzzer
+  - libfuzzer
+  - manul
+  - mopt
+  - nautilus
+  - neuzz
+  - pastis
+  - pythia_bb
+  - pythia_effect_bb
+  - symcc_afl
+  - symcc_aflplusplus
+  - symcc_aflplusplus_single
+  - symcc_afl_single
+  - symqemu_aflplusplus
+  - symsan
+  - token_level
+  - tortoisefuzz
+  - weizz_qemu
+  - wingfuzz
