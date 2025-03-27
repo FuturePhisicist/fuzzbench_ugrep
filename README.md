@@ -1,61 +1,41 @@
-# FuzzBench: Fuzzer Benchmarking As a Service
+# How I Fuzzed `ugrep`
 
-FuzzBench is a free service that evaluates fuzzers on a wide variety of
-real-world benchmarks, at Google scale. The goal of FuzzBench is to make it
-painless to rigorously evaluate fuzzing research and make fuzzing research
-easier for the community to adopt. We invite members of the research community
-to contribute their fuzzers and give us feedback on improving our evaluation
-techniques.
+In case you would like to study the fuzzbench's README, procede here: [README_fuzzbench.md](README_fuzzbench.md)
 
-FuzzBench provides:
+## Installation Problems
 
-* An easy API for integrating fuzzers.
-* Benchmarks from real-world projects. FuzzBench can use any
-  [OSS-Fuzz](https://github.com/google/oss-fuzz) project as a benchmark.
-* A reporting library that produces reports with graphs and statistical tests
-  to help you understand the significance of results.
+See issue: [https://github.com/google/fuzzbench/issues/940](https://github.com/google/fuzzbench/issues/940)  
+Maybe installing an older version of Python fixed it:  
+[https://askubuntu.com/a/682875](https://askubuntu.com/a/682875)
 
-To participate, submit your fuzzer to run on the FuzzBench platform by following
-[our simple guide](
-https://google.github.io/fuzzbench/getting-started/).
-After your integration is accepted, we will run a large-scale experiment using
-your fuzzer and generate a report comparing your fuzzer to others.
-See [a sample report](https://www.fuzzbench.com/reports/sample/index.html).
+## To Get the Commit Time and Hash
 
-## Overview
-<kbd>
-  
-![FuzzBench Service diagram](docs/images/FuzzBench-service.png)
-  
-</kbd>
+```bash
+git --no-pager log -1 $COMMIT_HASH --format=%cd --date=iso-strict
+git log
+```
 
+## How to Check
 
-## Sample Report
+```bash
+make format
+make presubmit
 
-You can view our sample report
-[here](https://www.fuzzbench.com/reports/sample/index.html) and
-our periodically generated reports
-[here](https://www.fuzzbench.com/reports/index.html).
-The sample report is generated using 10 fuzzers against 24 real-world
-benchmarks, with 20 trials each and over a duration of 24 hours.
-The raw data in compressed CSV format can be found at the end of the report.
+./test_my_ugrep_fuzzer_standart_only.sh
+./test_my_ugrep_fuzzer_standart_with_custom.sh
+./test_my_ugrep_fuzzer_custom_only.sh
+```
 
-When analyzing reports, we recommend:
-* Checking the strengths and weaknesses of a fuzzer against various benchmarks.
-* Looking at aggregate results to understand the overall significance of the
-  result.
+## Screenshots
 
-Please provide feedback on any inaccuracies and potential improvements (such as
-integration changes, new benchmarks, etc.) by opening a GitHub issue
-[here](https://github.com/google/fuzzbench/issues/new).
+### Standard
 
-## Documentation
+![First thing to have been done](screenshots/without_mutator.png)
 
-Read our [detailed documentation](https://google.github.io/fuzzbench/) to learn
-how to use FuzzBench.
+### Standard + Custom Mutator
 
-## Contacts
+Almost the same as **Custom Mutator Only**
 
-Join our [mailing list](https://groups.google.com/forum/#!forum/fuzzbench-users)
-for discussions and announcements, or send us a private email at
-[fuzzbench@google.com](mailto:fuzzbench@google.com).
+### Custom Mutator Only
+
+![Second thing to have been done](screenshots/custom_mutator_only.png)
