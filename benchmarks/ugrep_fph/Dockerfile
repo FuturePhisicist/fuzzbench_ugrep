@@ -1,5 +1,15 @@
 FROM gcr.io/oss-fuzz-base/base-builder@sha256:87ca1e9e19235e731fac8de8d1892ebe8d55caf18e7aa131346fc582a2034fdd
 
+# Install autoconf/automake/etc. for coverage builds (needed by autoreconf).
+RUN apt-get update && \
+    apt-get install -y \
+        autoconf \
+        automake \
+        libtool \
+        pkg-config \
+        # potentially anything else you need
+        && rm -rf /var/lib/apt/lists/*
+
 # `ugrep` will be checked out to the commit hash specified in `benchmark.yaml`.
 RUN git clone https://github.com/Genivia/ugrep /src/ugrep
 RUN git -C /src/ugrep checkout 8e9e97861f65408a2fb1196a7b112b992e7ca812

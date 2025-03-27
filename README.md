@@ -26,6 +26,12 @@ make presubmit
 ./test_my_ugrep_fuzzer_custom_only.sh
 ```
 
+Local experiment:
+
+```bash
+sudo ./run_fph_ugrep_local_experiment.sh
+```
+
 ## Screenshots
 
 ### Standard

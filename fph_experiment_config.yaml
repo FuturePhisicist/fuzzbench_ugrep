@@ -1,0 +1,18 @@
+# Number of trials per fuzzer-benchmark pair.
+trials: 3
+
+# Run each trial for (60 * 60) [seconds] == 1 [hour].
+max_total_time: 3600
+
+# Use the default Fuzzbench docker registry.
+docker_registry: gcr.io/fuzzbench
+
+# A local folder to store experiment data (queue, logs, etc.).
+# Must be an absolute path.
+experiment_filestore: /home/fph/fuzzing_test/fuzzbench_ugrep/results/experiment-data
+
+# A local folder to store final reports (HTML coverage, stats).
+report_filestore: /home/fph/fuzzing_test/fuzzbench_ugrep/results/report-data
+
+# Indicate that this is a local experiment (not on Google Cloud).
+local_experiment: true
