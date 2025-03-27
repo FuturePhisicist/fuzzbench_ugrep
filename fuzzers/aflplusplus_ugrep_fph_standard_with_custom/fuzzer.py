@@ -89,8 +89,10 @@ def build(*args):  # pylint: disable=too-many-branches,too-many-statements
             os.environ['CXXFLAGS'] = ''
             os.environ['CPPFLAGS'] = ''
     else:
-        os.environ['CC'] = '/afl/afl-clang-fast'
-        os.environ['CXX'] = '/afl/afl-clang-fast++'
+        # os.environ['CC'] = '/afl/afl-clang-fast'
+        # os.environ['CXX'] = '/afl/afl-clang-fast++'
+        os.environ['CC'] = '/afl/afl-gcc-fast'
+        os.environ['CXX'] = '/afl/afl-g++-fast'
 
     print('AFL++ build: ')
     print(build_modes)

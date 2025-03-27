@@ -15,11 +15,5 @@ https://github.com/google/fuzzbench/issues/940
 make format
 make presubmit
 
-export FUZZER_NAME=aflplusplus_ugrep_fph_custom_only
-export BENCHMARK_NAME=ugrep_fph
-
-make build-$FUZZER_NAME-$BENCHMARK_NAME
-
-# This command will fuzz forever. Press Ctrl-C to stop it.
-make run-$FUZZER_NAME-$BENCHMARK_NAME
+./test_my_ugrep_fuzzer.sh
 ```

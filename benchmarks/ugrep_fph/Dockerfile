@@ -15,4 +15,6 @@ RUN cp -r /src/FuzzingTask/input_texts $OUT/
 RUN cp -r /src/FuzzingTask/mutator $OUT/
 
 WORKDIR $SRC/ugrep
-RUN cp -r build.sh $SRC/
+# RUN cp -r build.sh $SRC/
+
+COPY build.sh $SRC/

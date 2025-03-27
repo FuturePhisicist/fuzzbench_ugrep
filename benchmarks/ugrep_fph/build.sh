@@ -11,4 +11,4 @@ autoreconf -fi
 # CC=afl-clang-fast CXX=afl-clang-fast++ ./build.sh --disable-shared
 ./build.sh --disable-shared
 
-cp ./bin/ugrep /out/ugrep
+cp ./bin/ugrep $OUT/ugrep
