@@ -29,7 +29,8 @@ make presubmit
 Local experiment:
 
 ```bash
-sudo ./run_fph_ugrep_local_experiment.sh
+sudo ./run_fph_ugrep_local_experiment.sh # TODO: Remove sudo
+sudo chown -R fph results
 ```
 
 ## Screenshots
