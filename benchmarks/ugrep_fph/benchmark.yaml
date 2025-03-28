@@ -7,7 +7,7 @@ unsupported_fuzzers:
   - afl_2_52_b
   - aflcc
   - aflfast
-  - aflplusplus
+  # - aflplusplus
   - aflplusplus_frida
   - aflplusplus_qemu
   # - aflplusplus_ugrep_fph_custom_only
