@@ -35,6 +35,8 @@ sudo chown -R fph results
 
 ## Screenshots
 
+![Local experiment result](screenshots/code_coverage_growth_over_time.png)
+
 ### Standard
 
 ![First thing to have been done](screenshots/without_mutator.png)
