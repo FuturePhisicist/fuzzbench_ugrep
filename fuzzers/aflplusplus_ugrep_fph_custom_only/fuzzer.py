@@ -250,7 +250,7 @@ def run_my_afl_fuzz(input_corpus,
                                 'regex_mutator_my1.py')
     os.environ['PYTHONPATH'] = os.path.dirname(mutator_path)
     os.environ['AFL_PYTHON_MODULE'] = 'regex_mutator_my1'
-    # os.environ['AFL_CUSTOM_MUTATOR_ONLY'] = '1'
+    os.environ['AFL_CUSTOM_MUTATOR_ONLY'] = '1'
 
     # Spawn the afl fuzzing process.
     print('[run_my_afl_fuzz] Running target with afl-fuzz')

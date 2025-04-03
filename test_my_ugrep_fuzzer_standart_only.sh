@@ -13,6 +13,8 @@ answer=${answer:-Y}  # Default to "Y" if no input
 if [[ "$answer" =~ ^[Yy]$ ]]; then
     echo "[ TEST_MY_UGREP_FUZZER ] Started run command."
     sudo make -d --trace run-$FUZZER_NAME-$BENCHMARK_NAME
+    # sudo make test-run-$FUZZER_NAME-$BENCHMARK_NAME
+    # sudo make debug-$FUZZER_NAME-$BENCHMARK_NAME
 else
     echo "[ TEST_MY_UGREP_FUZZER ] Skipping run command."
 fi
