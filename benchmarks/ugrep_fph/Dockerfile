@@ -31,3 +31,4 @@ WORKDIR $SRC/ugrep
 # RUN cp -r build.sh $SRC/
 
 COPY build.sh $SRC/
+COPY wrapper.sh $SRC/
