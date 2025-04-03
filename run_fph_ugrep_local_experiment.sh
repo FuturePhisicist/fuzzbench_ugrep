@@ -14,6 +14,7 @@ PYTHONPATH=. python3 experiment/run_experiment.py \
   --experiment-config "${CONFIG_FILE}" \
   --benchmarks ugrep_fph \
   --fuzzers aflplusplus aflplusplus_ugrep_fph_custom_only aflplusplus_ugrep_fph_standard aflplusplus_ugrep_fph_standard_with_custom \
+  --no-dictionaries \
   --experiment-name "${EXPERIMENT_NAME}"
 
 deactivate
