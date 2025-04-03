@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REAL_UGREP="$OUT/ugrep_to_run"
+REAL_UGREP="$(dirname "$0")/ugrep_to_run"
 
 ARGS=()
 for arg in "$@"; do
