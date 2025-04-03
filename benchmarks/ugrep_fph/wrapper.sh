@@ -5,7 +5,7 @@ REAL_UGREP="$(dirname "$0")/ugrep_to_run"
 ARGS=()
 for arg in "$@"; do
   case "$arg" in
-    -m=erge=* | -dump_coverage=* | -runs=* | -dict=* )
+    -merge=* | -dump_coverage=* | -runs=* | -dict=* )
       # skip coverage flags
       ;;
     *)
